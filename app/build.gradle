@@ -6,6 +6,21 @@ plugins {
     id 'dagger.hilt.android.plugin'
 }
 
+def getProperty(String filename, String propName) {
+    def propsFile = rootProject.file(filename)
+    if (propsFile.exists()) {
+        def props = new Properties()
+        props.load(new FileInputStream(propsFile))
+        if (props[propName] != null) {
+            return props[propName]
+        } else {
+            print("No such property " + propName + " in file " + filename)
+        }
+    } else {
+        print(filename + " does not exist!")
+    }
+}
+
 android {
     compileSdkVersion rootProject.compileSdkVersion
     buildToolsVersion rootProject.buildToolsVersion
@@ -18,6 +33,9 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField "String", "X_NCP_APIGW_API_KEY_ID", "\"${getProperty("local.properties", "x_ncp_apigw_api_key_id")}\""
+        buildConfigField "String", "X_NCP_APIGW_API_KEY", "\"${getProperty("local.properties", "x_ncp_apigw_api_key")}\""
+        resValue "string", "X_NCP_APIGW_API_KEY_ID", "\"${getProperty("local.properties", "x_ncp_apigw_api_key_id")}\""
     }
 
     buildTypes {
@@ -67,6 +85,10 @@ dependencies {
 
     // coroutines
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesCoreVersion"
+
+    // map
+    implementation "com.naver.maps:map-sdk:$naverMapVersion"
+    implementation "gun0912.ted:tedclustering-naver:$tedClusteringVersion"
 
     // test
     testImplementation "junit:junit:$junitVersion"

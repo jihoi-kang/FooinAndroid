@@ -21,6 +21,8 @@ buildscript {
         hiltVersion = '2.31-alpha'
         hiltViewModelVersion = '1.0.0-alpha03'
         coroutinesCoreVersion = '1.4.2'
+        naverMapVersion = '3.4.0'
+        tedClusteringVersion = '1.0.2'
 
         junitVersion = '4.13.2'
         junitExtVersion = '1.1.2'
@@ -43,6 +45,9 @@ allprojects {
     repositories {
         google()
         jcenter()
+        maven {
+            url 'https://naver.jfrog.io/artifactory/maven/'
+        }
     }
 }
 

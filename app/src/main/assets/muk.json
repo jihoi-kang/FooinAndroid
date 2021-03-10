@@ -1,0 +1,86 @@
+{
+  "status": "ok",
+  "result": {
+    "title": "먹적",
+    "link": "https://www.youtube.com/channel/UCngw6cNCHiqRxv7wmLayH1w",
+    "items": [
+      {
+        "id": 11,
+        "title": "스시이토",
+        "positions": [
+          {
+            "latitude": 37.525139411305744,
+            "longitude": 127.03750231209176
+          }
+        ],
+        "link": "https://www.youtube.com/watch?v=A1cQCTnYc74"
+      },
+      {
+        "id": 12,
+        "title": "스시유리",
+        "positions": [
+          {
+            "latitude": 37.50998504559714,
+            "longitude": 127.05692724092768
+          }
+        ],
+        "link": "https://www.youtube.com/watch?v=E0kWsRKWm5g"
+      },
+      {
+        "id": 13,
+        "title": "스시인",
+        "positions": [
+          {
+            "latitude": 37.52578575634973,
+            "longitude": 127.03453376976424
+          }
+        ],
+        "link": "https://www.youtube.com/watch?v=aWFVbsEqM3I"
+      },
+      {
+        "id": 14,
+        "title": "스시시미즈",
+        "positions": [
+          {
+            "latitude": 37.523180981116376,
+            "longitude": 127.03453924278122
+          }
+        ],
+        "link": "https://www.youtube.com/watch?v=g5Ppqrfns6E"
+      },
+      {
+        "id": 15,
+        "title": "스시테츠카",
+        "positions": [
+          {
+            "latitude": 37.53522901152923,
+            "longitude": 127.00797488140239
+          }
+        ],
+        "link": "https://www.youtube.com/watch?v=TM57f4XYoqo"
+      },
+      {
+        "id": 16,
+        "title": "스시아라타",
+        "positions": [
+          {
+            "latitude": 37.52671172411874,
+            "longitude": 126.89777822743643
+          }
+        ],
+        "link": "https://www.youtube.com/watch?v=Pay93iSIt_E"
+      },
+      {
+        "id": 17,
+        "title": "카퍼룸",
+        "positions": [
+          {
+            "latitude": 37.51043984901341,
+            "longitude": 127.04527968510843
+          }
+        ],
+        "link": "https://www.youtube.com/watch?v=1qnnhZhEbMA"
+      }
+    ]
+  }
+}

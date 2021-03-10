@@ -51,7 +51,7 @@
                     android:layout_marginStart="8dp"
                     android:layout_weight="1"
                     android:background="@android:color/transparent"
-                    android:hint="@string/msg_enter_address"
+                    android:hint="@string/msg_enter_youtuber"
                     android:imeOptions="actionDone"
                     android:inputType="text"
                     android:text="@={vm.query}"

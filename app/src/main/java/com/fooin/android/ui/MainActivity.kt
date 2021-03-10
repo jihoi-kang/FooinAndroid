@@ -2,12 +2,12 @@ package com.fooin.android.ui
 
 import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
 import android.widget.TextView
 import com.fooin.android.R
 import com.fooin.android.base.BaseActivity
 import com.fooin.android.databinding.ActivityMainBinding
 import com.fooin.android.model.NaverItem
+import com.fooin.android.model.Position
 import com.naver.maps.geometry.LatLng
 import com.naver.maps.map.*
 import com.naver.maps.map.overlay.Marker
@@ -42,17 +42,30 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(
     }
 
     private fun setupObserve() {
-        viewModel.markGeoEvent.observe(this) { address ->
+        viewModel.restaurantItems.observe(this) { restaurants ->
+            if (restaurants.isEmpty()) return@observe
+
             naverClustering.clearItems()
-            naverClustering.addItem(
-                NaverItem(
-                    address.y.toDouble(),
-                    address.x.toDouble(),
+
+            val firstPosition =
+                Position(
+                    restaurants[0].positions[0].latitude,
+                    restaurants[0].positions[0].longitude
                 )
-            )
+            restaurants.forEach { restaurant ->
+                restaurant.positions.forEach { position ->
+                    naverClustering.addItem(
+                        NaverItem(
+                            position.latitude,
+                            position.longitude,
+                        )
+                    )
+                }
+            }
+
 
             val cameraUpdate =
-                CameraUpdate.scrollTo(LatLng(address.y.toDouble(), address.x.toDouble()))
+                CameraUpdate.scrollTo(LatLng(firstPosition.latitude, firstPosition.longitude))
             naverMap.moveCamera(cameraUpdate)
 
         }
@@ -84,23 +97,8 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(
                     setPadding(10, 10, 10, 10)
                 }
             }
-            .items(getItems())
+            .items(emptyList())
             .make()
-    }
-
-    // test items
-    private fun getItems(): List<NaverItem> {
-        val bounds = naverMap.contentBounds
-        return ArrayList<NaverItem>().apply {
-            repeat(50) {
-                val temp = NaverItem(
-                    (bounds.northLatitude - bounds.southLatitude) * Math.random() + bounds.southLatitude,
-                    (bounds.eastLongitude - bounds.westLongitude) * Math.random() + bounds.westLongitude,
-                )
-                add(temp)
-            }
-        }
-
     }
 
 }

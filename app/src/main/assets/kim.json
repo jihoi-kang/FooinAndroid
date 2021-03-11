@@ -10,7 +10,8 @@
         "positions": [
           {
             "latitude": 37.54612026864128,
-            "longitude": 126.92267985627296
+            "longitude": 126.92267985627296,
+            "address": "서울 마포구 와우산로 15-3"
           }
         ],
         "link": "https://www.youtube.com/watch?v=MeNJx-a1s1Q"
@@ -21,7 +22,8 @@
         "positions": [
           {
             "latitude": 37.55792018818322,
-            "longitude": 126.90883118325611
+            "longitude": 126.90883118325611,
+            "address": "서울 마포구 월드컵로 102"
           }
         ],
         "link": "https://www.youtube.com/watch?v=1QYQI3ulvuU"
@@ -32,7 +34,8 @@
         "positions": [
           {
             "latitude": 37.57312851056837,
-            "longitude": 126.99081536976496
+            "longitude": 126.99081536976496,
+            "address": "서울 종로구 돈화문로11나길 5"
           }
         ],
         "link": "https://www.youtube.com/watch?v=7B0axg1GfgQ"
@@ -43,7 +46,8 @@
         "positions": [
           {
             "latitude": 37.569485087437805,
-            "longitude": 126.99087741394585
+            "longitude": 126.99087741394585,
+            "address": "서울 종로구 수표로18길 24"
           }
         ],
         "link": "https://www.youtube.com/watch?v=N5_tWfhEfqI"
@@ -54,7 +58,8 @@
         "positions": [
           {
             "latitude": 37.520811139489645,
-            "longitude": 126.9747223390745
+            "longitude": 126.9747223390745,
+            "address": "서울 용산구 이촌로75길 16-9"
           }
         ],
         "link": "https://www.youtube.com/watch?v=lydQ4-edwjQ"
@@ -65,7 +70,8 @@
         "positions": [
           {
             "latitude": 37.55422719144334,
-            "longitude": 127.01045368325612
+            "longitude": 127.01045368325612,
+            "address": "서울 중구 다산로 114-1"
           }
         ],
         "link": "https://www.youtube.com/watch?v=Ug8H3CB28YA"
@@ -76,7 +82,8 @@
         "positions": [
           {
             "latitude": 37.57279255252524,
-            "longitude": 127.00404450045433
+            "longitude": 127.00404450045433,
+            "address": "서울 종로구 종로35길 34"
           }
         ],
         "link": "https://www.youtube.com/watch?v=-BBY9hij2UI"
@@ -87,7 +94,8 @@
         "positions": [
           {
             "latitude": 37.549590232645734,
-            "longitude": 126.91703308696252
+            "longitude": 126.91703308696252,
+            "address": "서울 마포구 독막로3길 23"
           }
         ],
         "link": "https://www.youtube.com/watch?v=Jyg3TdkmU5A"
@@ -98,31 +106,38 @@
         "positions": [
           {
             "latitude": 37.55856106626194,
-            "longitude": 126.93644565627322
+            "longitude": 126.93644565627322,
+            "address": "서울 서대문구 연세로9길 7"
           },
           {
             "latitude": 37.54258977091459,
-            "longitude": 127.07018283520617
+            "longitude": 127.07018283520617,
+            "address": "서울 광진구 동일로24길 95"
           },
           {
             "latitude": 37.50012936192222,
-            "longitude": 127.02823990230638
+            "longitude": 127.02823990230638,
+            "address": "서울 강남구 강남대로96길 13"
           },
           {
             "latitude": 37.58312211858452,
-            "longitude": 127.00010476976523
+            "longitude": 127.00010476976523,
+            "address": "서울 종로구 대명길 29-3"
           },
           {
             "latitude": 37.478643863840674,
-            "longitude": 126.95612926976318
+            "longitude": 126.95612926976318,
+            "address": "서울 관악구 관악로14길 65"
           },
           {
             "latitude": 37.638801206330385,
-            "longitude": 127.02479800045569
+            "longitude": 127.02479800045569,
+            "address": "서울 강북구 한천로139길 46"
           },
           {
             "latitude": 37.5607403396852,
-            "longitude": 127.04002834092842
+            "longitude": 127.04002834092842,
+            "address": "서울 성동구 마조로1가길 11"
           }
         ],
         "link": "https://www.youtube.com/watch?v=1kmZjUorPpE"
@@ -133,7 +148,8 @@
         "positions": [
           {
             "latitude": 37.567572381328354,
-            "longitude": 126.998563342782
+            "longitude": 126.998563342782,
+            "address": "서울 중구 을지로33길 38"
           }
         ],
         "link": "https://www.youtube.com/watch?v=rDuQT2O_FBg"

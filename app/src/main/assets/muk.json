@@ -10,7 +10,8 @@
         "positions": [
           {
             "latitude": 37.525139411305744,
-            "longitude": 127.03750231209176
+            "longitude": 127.03750231209176,
+            "address": "서울 강남구 선릉로 153길 22"
           }
         ],
         "link": "https://www.youtube.com/watch?v=A1cQCTnYc74"
@@ -21,7 +22,8 @@
         "positions": [
           {
             "latitude": 37.50998504559714,
-            "longitude": 127.05692724092768
+            "longitude": 127.05692724092768,
+            "address": "서울 강남구 테헤란로83길 36"
           }
         ],
         "link": "https://www.youtube.com/watch?v=E0kWsRKWm5g"
@@ -32,7 +34,8 @@
         "positions": [
           {
             "latitude": 37.52578575634973,
-            "longitude": 127.03453376976424
+            "longitude": 127.03453376976424,
+            "address": "서울 강남구 압구정로42길 49"
           }
         ],
         "link": "https://www.youtube.com/watch?v=aWFVbsEqM3I"
@@ -43,7 +46,8 @@
         "positions": [
           {
             "latitude": 37.523180981116376,
-            "longitude": 127.03453924278122
+            "longitude": 127.03453924278122,
+            "address": "서울 강남구 언주로152길 11-3"
           }
         ],
         "link": "https://www.youtube.com/watch?v=g5Ppqrfns6E"
@@ -54,7 +58,8 @@
         "positions": [
           {
             "latitude": 37.53522901152923,
-            "longitude": 127.00797488140239
+            "longitude": 127.00797488140239,
+            "address": "서울 용산구 한남대로20길 21-18"
           }
         ],
         "link": "https://www.youtube.com/watch?v=TM57f4XYoqo"
@@ -65,7 +70,8 @@
         "positions": [
           {
             "latitude": 37.52671172411874,
-            "longitude": 126.89777822743643
+            "longitude": 126.89777822743643,
+            "address": "서울 영등포구 당산로32길 7-4"
           }
         ],
         "link": "https://www.youtube.com/watch?v=Pay93iSIt_E"
@@ -76,7 +82,8 @@
         "positions": [
           {
             "latitude": 37.51043984901341,
-            "longitude": 127.04527968510843
+            "longitude": 127.04527968510843,
+            "address": "서울 강남구 봉은사로 410"
           }
         ],
         "link": "https://www.youtube.com/watch?v=1qnnhZhEbMA"

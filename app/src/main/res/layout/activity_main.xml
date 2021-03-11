@@ -41,7 +41,7 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:onClick="@{() -> vm.getGeoCode()}"
+                    android:onClick="@{() -> vm.getRestaurants()}"
                     android:src="@drawable/ic_baseline_search_24" />
 
                 <EditText

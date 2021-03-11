@@ -66,6 +66,8 @@ dependencies {
     implementation "androidx.recyclerview:recyclerview:$recyclerVersion"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVersion"
+    implementation "androidx.activity:activity-ktx:$activityKtxVersion"
+    implementation "androidx.fragment:fragment-ktx:$fragmentKtxVersion"
 
     // network
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
@@ -88,7 +90,6 @@ dependencies {
 
     // map
     implementation "com.naver.maps:map-sdk:$naverMapVersion"
-    implementation "gun0912.ted:tedclustering-naver:$tedClusteringVersion"
 
     // test
     testImplementation "junit:junit:$junitVersion"

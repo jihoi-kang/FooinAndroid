@@ -20,10 +20,14 @@ class MainViewModel @Inject constructor(
     private val _restaurantItems = MutableLiveData<List<Restaurant>>(emptyList())
     val restaurantItems: LiveData<List<Restaurant>> get() = _restaurantItems
 
-    fun getGeoCode() {
+    private val _hideKeyboardEvent = MutableLiveData<Unit>()
+    val hideKeyboardEvent: LiveData<Unit> get() = _hideKeyboardEvent
+
+    fun getRestaurants() {
         val query = query.value ?: return
 
         viewModelScope.launch {
+            _hideKeyboardEvent.value = Unit
             val restaurants = repository.getRestaurants(query)
             _restaurantItems.value = restaurants
         }

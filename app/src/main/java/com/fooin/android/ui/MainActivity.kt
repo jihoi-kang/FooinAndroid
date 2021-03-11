@@ -1,28 +1,29 @@
 package com.fooin.android.ui
 
-import android.graphics.Color
+import android.content.Context
 import android.os.Bundle
-import android.widget.TextView
+import android.view.inputmethod.InputMethodManager
 import com.fooin.android.R
 import com.fooin.android.base.BaseActivity
 import com.fooin.android.databinding.ActivityMainBinding
-import com.fooin.android.model.NaverItem
 import com.fooin.android.model.Position
+import com.fooin.android.ui.dialog.StoreDetailDialogFragment
 import com.naver.maps.geometry.LatLng
 import com.naver.maps.map.*
 import com.naver.maps.map.overlay.Marker
-import com.naver.maps.map.util.MarkerIcons
+import com.naver.maps.map.overlay.OverlayImage
 import dagger.hilt.android.AndroidEntryPoint
-import ted.gun0912.clustering.naver.TedNaverClustering
 
 @AndroidEntryPoint
 class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(
     R.layout.activity_main,
-    MainViewModel::class.java
 ), OnMapReadyCallback {
 
     private lateinit var naverMap: NaverMap
-    private lateinit var naverClustering: TedNaverClustering<NaverItem>
+
+    private val inputMethodManager: InputMethodManager by lazy {
+        getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,8 +46,6 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(
         viewModel.restaurantItems.observe(this) { restaurants ->
             if (restaurants.isEmpty()) return@observe
 
-            naverClustering.clearItems()
-
             val firstPosition =
                 Position(
                     restaurants[0].positions[0].latitude,
@@ -54,12 +53,17 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(
                 )
             restaurants.forEach { restaurant ->
                 restaurant.positions.forEach { position ->
-                    naverClustering.addItem(
-                        NaverItem(
-                            position.latitude,
-                            position.longitude,
-                        )
-                    )
+                    val marker = Marker()
+                    setMarker(marker, position.latitude, position.longitude)
+                    marker.setOnClickListener {
+                        StoreDetailDialogFragment.newInstance(restaurant).apply {
+                            show(
+                                supportFragmentManager,
+                                StoreDetailDialogFragment::class.java.simpleName
+                            )
+                        }
+                        true
+                    }
                 }
             }
 
@@ -67,7 +71,9 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(
             val cameraUpdate =
                 CameraUpdate.scrollTo(LatLng(firstPosition.latitude, firstPosition.longitude))
             naverMap.moveCamera(cameraUpdate)
-
+        }
+        viewModel.hideKeyboardEvent.observe(this) {
+            inputMethodManager.hideSoftInputFromWindow(currentFocus?.windowToken, 0)
         }
     }
 
@@ -81,24 +87,19 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(
                 )
             )
         )
-        naverClustering = TedNaverClustering.with<NaverItem>(this, naverMap)
-            .customMarker { clusterItem ->
-                Marker(clusterItem.position).apply {
-                    icon = MarkerIcons.GRAY
-                    title = clusterItem.position.latitude.toString()
-                }
+    }
 
-            }
-            .customCluster {
-                TextView(this).apply {
-                    setBackgroundColor(Color.DKGRAY)
-                    setTextColor(Color.WHITE)
-                    text = "${it.size} 개"
-                    setPadding(10, 10, 10, 10)
-                }
-            }
-            .items(emptyList())
-            .make()
+    private fun setMarker(
+        marker: Marker,
+        lat: Double,
+        lng: Double,
+    ) {
+        marker.isIconPerspectiveEnabled = true
+        marker.icon = OverlayImage.fromResource(R.drawable.ic_location_on)
+        marker.alpha = 0.8f
+        marker.position = LatLng(lat, lng)
+        marker.zIndex = 0
+        marker.map = naverMap
     }
 
 }

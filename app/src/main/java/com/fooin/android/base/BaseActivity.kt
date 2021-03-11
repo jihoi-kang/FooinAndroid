@@ -5,20 +5,25 @@ import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelLazy
 import com.fooin.android.BR
+import java.lang.reflect.ParameterizedType
 
-abstract class BaseActivity<B : ViewDataBinding, VM : ViewModel>(
+abstract class BaseActivity<B : ViewDataBinding, VM : BaseViewModel>(
     @LayoutRes private val layoutRes: Int,
-    private val viewModelClass: Class<VM>,
 ) : AppCompatActivity() {
 
     protected lateinit var binding: B
 
-    protected val viewModel: VM by lazy {
-        ViewModelProvider(this).get(viewModelClass)
-    }
+    private val viewModelClass = ((javaClass.genericSuperclass as ParameterizedType?)
+        ?.actualTypeArguments
+        ?.get(1) as Class<VM>).kotlin
+
+    protected open val viewModel by ViewModelLazy(
+        viewModelClass,
+        { viewModelStore },
+        { defaultViewModelProviderFactory }
+    )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

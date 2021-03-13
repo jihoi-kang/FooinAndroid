@@ -5,7 +5,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.fooin.android.base.BaseViewModel
 import com.fooin.android.data.RestaurantRepository
-import com.fooin.android.model.Restaurant
+import com.fooin.android.model.UiRestaurantModel
+import com.fooin.android.model.asUiModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -17,8 +18,8 @@ class MainViewModel @Inject constructor(
 
     val query = MutableLiveData<String>()
 
-    private val _restaurantItems = MutableLiveData<List<Restaurant>>(emptyList())
-    val restaurantItems: LiveData<List<Restaurant>> get() = _restaurantItems
+    private val _restaurantItems = MutableLiveData<List<UiRestaurantModel>>(emptyList())
+    val restaurantItems: LiveData<List<UiRestaurantModel>> get() = _restaurantItems
 
     private val _hideKeyboardEvent = MutableLiveData<Unit>()
     val hideKeyboardEvent: LiveData<Unit> get() = _hideKeyboardEvent
@@ -28,8 +29,9 @@ class MainViewModel @Inject constructor(
 
         viewModelScope.launch {
             _hideKeyboardEvent.value = Unit
-            val restaurants = repository.getRestaurants(query)
-            _restaurantItems.value = restaurants
+            val result = repository.getRestaurants(query)
+            _restaurantItems.value =
+                result.items.asUiModel(result.influencerName, result.influencerType, result.influencerImageUrl)
         }
     }
 

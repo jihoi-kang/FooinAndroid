@@ -1,8 +1,8 @@
 package com.fooin.android.data.prepackage
 
 import android.content.Context
+import com.fooin.android.data.response.GetRestaurantsResponse
 import com.fooin.android.ext.loadJson
-import com.fooin.android.model.Restaurant
 import com.google.gson.Gson
 import dagger.Binds
 import dagger.Module
@@ -17,22 +17,23 @@ class PrePackagedDbImpl @Inject constructor(
     private val gson: Gson,
 ) : PrePackagedDb {
 
-    override suspend fun getRestaurants(youtuberName: String): List<Restaurant> {
-        val assetsName = when (youtuberName) {
+    override suspend fun getRestaurants(influencerName: String): GetRestaurantsResponse.Result {
+        val assetsName = when (influencerName) {
             "김사원세끼" -> "kim.json"
             "먹적" -> "muk.json"
             else -> "error.json"
         }
 
         return try {
-            val response = context.loadJson<PrePackagedResponse>(gson, assetsName)
+            val response = context.loadJson<GetRestaurantsResponse>(gson, assetsName)
             if (response.status == "ok") {
-                response.result.items
+                response.result
             } else {
-                emptyList()
+                // todo: Need to implement
+                throw Exception("Need to implement")
             }
         } catch (e: Exception) {
-            emptyList()
+            throw RuntimeException("json file load error")
         }
     }
 }

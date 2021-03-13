@@ -1,10 +1,7 @@
-package com.fooin.android.model
+package com.fooin.android.data.model
 
-import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
-import kotlinx.parcelize.Parcelize
 
-@Parcelize
 data class Position(
     @SerializedName("latitude")
     val latitude: Double,
@@ -12,4 +9,4 @@ data class Position(
     val longitude: Double,
     @SerializedName("address")
     val address: String = ""
-) : Parcelable
+)

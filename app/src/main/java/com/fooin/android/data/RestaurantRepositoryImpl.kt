@@ -1,7 +1,7 @@
 package com.fooin.android.data
 
 import com.fooin.android.data.prepackage.PrePackagedDb
-import com.fooin.android.model.Restaurant
+import com.fooin.android.data.response.GetRestaurantsResponse
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -13,8 +13,8 @@ class RestaurantRepositoryImpl @Inject constructor(
     private val prePackagedDb: PrePackagedDb,
 ) : RestaurantRepository {
 
-    override suspend fun getRestaurants(youtuberName: String): List<Restaurant> {
-        return prePackagedDb.getRestaurants(youtuberName)
+    override suspend fun getRestaurants(influencerName: String): GetRestaurantsResponse.Result {
+        return prePackagedDb.getRestaurants(influencerName)
     }
 }
 

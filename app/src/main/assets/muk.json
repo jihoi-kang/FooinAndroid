@@ -1,12 +1,14 @@
 {
   "status": "ok",
   "result": {
-    "title": "먹적",
+    "influencerName": "먹적",
+    "influencerType": "youtuber",
+    "influencerImageUrl": "https://yt3.ggpht.com/ytc/AAUvwniA6OJnqsRdXFi9TmXksPrR0y0AEC3wXyI3Wdm3O18=s176-c-k-c0x00ffffff-no-rj",
     "link": "https://www.youtube.com/channel/UCngw6cNCHiqRxv7wmLayH1w",
     "items": [
       {
         "id": 11,
-        "title": "스시이토",
+        "name": "스시이토",
         "positions": [
           {
             "latitude": 37.525139411305744,
@@ -18,7 +20,7 @@
       },
       {
         "id": 12,
-        "title": "스시유리",
+        "name": "스시유리",
         "positions": [
           {
             "latitude": 37.50998504559714,
@@ -30,7 +32,7 @@
       },
       {
         "id": 13,
-        "title": "스시인",
+        "name": "스시인",
         "positions": [
           {
             "latitude": 37.52578575634973,
@@ -42,7 +44,7 @@
       },
       {
         "id": 14,
-        "title": "스시시미즈",
+        "name": "스시시미즈",
         "positions": [
           {
             "latitude": 37.523180981116376,
@@ -54,7 +56,7 @@
       },
       {
         "id": 15,
-        "title": "스시테츠카",
+        "name": "스시테츠카",
         "positions": [
           {
             "latitude": 37.53522901152923,
@@ -66,7 +68,7 @@
       },
       {
         "id": 16,
-        "title": "스시아라타",
+        "name": "스시아라타",
         "positions": [
           {
             "latitude": 37.52671172411874,
@@ -78,7 +80,7 @@
       },
       {
         "id": 17,
-        "title": "카퍼룸",
+        "name": "카퍼룸",
         "positions": [
           {
             "latitude": 37.51043984901341,

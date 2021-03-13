@@ -7,14 +7,14 @@ import android.view.View
 import androidx.core.os.bundleOf
 import com.fooin.android.R
 import com.fooin.android.base.BaseBottomSheetDialogFragment
-import com.fooin.android.databinding.BottomSheetStoreDetailBinding
-import com.fooin.android.model.Restaurant
+import com.fooin.android.databinding.BottomSheetRestaurantDetailBinding
+import com.fooin.android.model.UiRestaurantModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class StoreDetailDialogFragment :
-    BaseBottomSheetDialogFragment<BottomSheetStoreDetailBinding, StoreDetailViewModel>(
-        R.layout.bottom_sheet_store_detail,
+class RestaurantDetailDialogFragment :
+    BaseBottomSheetDialogFragment<BottomSheetRestaurantDetailBinding, RestaurantDetailViewModel>(
+        R.layout.bottom_sheet_restaurant_detail,
     ) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -32,9 +32,9 @@ class StoreDetailDialogFragment :
 
     companion object {
         @JvmStatic
-        fun newInstance(restaurant: Restaurant): StoreDetailDialogFragment =
-            StoreDetailDialogFragment().apply {
-                arguments = bundleOf(StoreDetailViewModel.ARGUMENT_RESTAURANT to restaurant)
+        fun newInstance(restaurant: UiRestaurantModel): RestaurantDetailDialogFragment =
+            RestaurantDetailDialogFragment().apply {
+                arguments = bundleOf(RestaurantDetailViewModel.ARGUMENT_RESTAURANT to restaurant)
             }
     }
 

@@ -1,10 +1,9 @@
-package com.fooin.android.data.prepackage
+package com.fooin.android.data.response
 
-
-import com.fooin.android.model.Restaurant
+import com.fooin.android.data.model.Restaurant
 import com.google.gson.annotations.SerializedName
 
-data class PrePackagedResponse(
+data class GetRestaurantsResponse(
     @SerializedName("result")
     val result: Result,
     @SerializedName("message")
@@ -17,7 +16,11 @@ data class PrePackagedResponse(
         val items: List<Restaurant>,
         @SerializedName("link")
         val link: String,
-        @SerializedName("title")
-        val title: String
+        @SerializedName("influencerType")
+        val influencerType: String,
+        @SerializedName("influencerName")
+        val influencerName: String,
+        @SerializedName("influencerImageUrl")
+        val influencerImageUrl: String,
     )
 }

@@ -6,8 +6,8 @@ import android.view.inputmethod.InputMethodManager
 import com.fooin.android.R
 import com.fooin.android.base.BaseActivity
 import com.fooin.android.databinding.ActivityMainBinding
-import com.fooin.android.model.Position
-import com.fooin.android.ui.dialog.StoreDetailDialogFragment
+import com.fooin.android.data.model.Position
+import com.fooin.android.ui.dialog.RestaurantDetailDialogFragment
 import com.naver.maps.geometry.LatLng
 import com.naver.maps.map.*
 import com.naver.maps.map.overlay.Marker
@@ -48,22 +48,20 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(
 
             val firstPosition =
                 Position(
-                    restaurants[0].positions[0].latitude,
-                    restaurants[0].positions[0].longitude
+                    restaurants[0].latitude,
+                    restaurants[0].longitude,
                 )
             restaurants.forEach { restaurant ->
-                restaurant.positions.forEach { position ->
-                    val marker = Marker()
-                    setMarker(marker, position.latitude, position.longitude)
-                    marker.setOnClickListener {
-                        StoreDetailDialogFragment.newInstance(restaurant).apply {
-                            show(
-                                supportFragmentManager,
-                                StoreDetailDialogFragment::class.java.simpleName
-                            )
-                        }
-                        true
+                val marker = Marker()
+                setMarker(marker, restaurant.latitude, restaurant.longitude)
+                marker.setOnClickListener {
+                    RestaurantDetailDialogFragment.newInstance(restaurant).apply {
+                        show(
+                            supportFragmentManager,
+                            RestaurantDetailDialogFragment::class.java.simpleName
+                        )
                     }
+                    true
                 }
             }
 

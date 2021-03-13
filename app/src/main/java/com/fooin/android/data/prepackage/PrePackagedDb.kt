@@ -1,9 +1,9 @@
 package com.fooin.android.data.prepackage
 
-import com.fooin.android.model.Restaurant
+import com.fooin.android.data.response.GetRestaurantsResponse
 
 interface PrePackagedDb {
 
-    suspend fun getRestaurants(youtuberName: String): List<Restaurant>
+    suspend fun getRestaurants(influencerName: String): GetRestaurantsResponse.Result
 
 }

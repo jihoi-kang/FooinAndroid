@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.fooin.android.model.enums.InfluencerType" />
+
+        <variable
+            name="vm"
+            type="com.fooin.android.ui.dialog.RestaurantDetailViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="16dp"
+        android:paddingTop="24dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="32dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/civ_influencer_image"
+            android:layout_width="@dimen/influencer_profile_image"
+            android:layout_height="@dimen/influencer_profile_image"
+            app:civ_border_color="@color/grey_500"
+            app:civ_border_width="0.5dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            bind:imageUrl="@{vm.restaurant.influencerImageUrl}"
+            tools:src="@drawable/ic_launcher_foreground" />
+
+        <TextView
+            android:id="@+id/tv_influencer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:gravity="center_vertical"
+            android:text="@{vm.restaurant.influencerName}"
+            app:layout_constraintBottom_toBottomOf="@+id/civ_influencer_image"
+            app:layout_constraintStart_toEndOf="@+id/civ_influencer_image"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="김사원세끼" />
+
+        <ImageView
+            android:layout_width="@dimen/icon_small"
+            android:layout_height="@dimen/icon_small"
+            android:layout_marginStart="6dp"
+            android:src="@{vm.restaurant.influencerType == InfluencerType.YOUTUBER ? @drawable/ic_youtube : @drawable/ic_instagram}"
+            app:layout_constraintBottom_toBottomOf="@+id/civ_influencer_image"
+            app:layout_constraintStart_toEndOf="@+id/tv_influencer"
+            app:layout_constraintTop_toTopOf="@+id/civ_influencer_image"
+            tools:src="@drawable/ic_youtube" />
+
+        <TextView
+            android:id="@+id/tv_restaurant_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@{vm.restaurant.restaurantName}"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/civ_influencer_image"
+            tools:text="서울돼지구이" />
+
+        <TextView
+            android:id="@+id/tv_address"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@{vm.restaurant.address}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_restaurant_name"
+            tools:text="서울 마포구 와우산로 15-3" />
+
+        <TextView
+            android:id="@+id/tv_link"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:onClick="@{() -> vm.openLink()}"
+            android:text="@{vm.restaurant.link}"
+            android:textColor="@color/teal_200"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_address"
+            tools:text="https://www.youtube.com/watch?v=MeNJx-a1s1Q" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,12 +1,14 @@
 {
   "status": "ok",
   "result": {
-    "title": "김사원세끼",
+    "influencerName": "김사원세끼",
+    "influencerType": "youtuber",
+    "influencerImageUrl": "https://yt3.ggpht.com/ytc/AAUvwniDhnzaG7W8fSWckraTyQLpMZJ8_tlCIYp3z9OR=s176-c-k-c0x00ffffff-no-rj",
     "link": "https://www.youtube.com/channel/UC-x55HF1-IilhxZOzwJm7JA",
     "items": [
       {
         "id": 1,
-        "title": "서울돼지구이",
+        "name": "서울돼지구이",
         "positions": [
           {
             "latitude": 37.54612026864128,
@@ -18,7 +20,7 @@
       },
       {
         "id": 2,
-        "title": "우리바다수산",
+        "name": "우리바다수산",
         "positions": [
           {
             "latitude": 37.55792018818322,
@@ -30,7 +32,7 @@
       },
       {
         "id": 3,
-        "title": "이경문순대곱창",
+        "name": "이경문순대곱창",
         "positions": [
           {
             "latitude": 37.57312851056837,
@@ -42,7 +44,7 @@
       },
       {
         "id": 4,
-        "title": "한도삼겹살",
+        "name": "한도삼겹살",
         "positions": [
           {
             "latitude": 37.569485087437805,
@@ -54,7 +56,7 @@
       },
       {
         "id": 5,
-        "title": "한길포장마차",
+        "name": "한길포장마차",
         "positions": [
           {
             "latitude": 37.520811139489645,
@@ -66,7 +68,7 @@
       },
       {
         "id": 6,
-        "title": "사가루가스",
+        "name": "사가루가스",
         "positions": [
           {
             "latitude": 37.55422719144334,
@@ -78,7 +80,7 @@
       },
       {
         "id": 7,
-        "title": "백제정육점",
+        "name": "백제정육점",
         "positions": [
           {
             "latitude": 37.57279255252524,
@@ -90,7 +92,7 @@
       },
       {
         "id": 8,
-        "title": "모락모락",
+        "name": "모락모락",
         "positions": [
           {
             "latitude": 37.549590232645734,
@@ -102,7 +104,7 @@
       },
       {
         "id": 9,
-        "title": "정통집",
+        "name": "정통집",
         "positions": [
           {
             "latitude": 37.55856106626194,
@@ -144,7 +146,7 @@
       },
       {
         "id": 10,
-        "title": "나드리식품",
+        "name": "나드리식품",
         "positions": [
           {
             "latitude": 37.567572381328354,

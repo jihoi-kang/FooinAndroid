@@ -41,7 +41,6 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:onClick="@{() -> vm.getRestaurants()}"
                     android:src="@drawable/ic_baseline_search_24" />
 
                 <EditText
@@ -51,11 +50,12 @@
                     android:layout_marginStart="8dp"
                     android:layout_weight="1"
                     android:background="@android:color/transparent"
-                    android:hint="@string/msg_enter_youtuber"
-                    android:imeOptions="actionDone"
+                    android:hint="@string/msg_enter_influencer"
+                    android:imeOptions="actionSearch"
                     android:inputType="text"
                     android:text="@={vm.query}"
-                    android:textCursorDrawable="@drawable/cursor_style" />
+                    android:textCursorDrawable="@drawable/cursor_style"
+                    bind:onSearch="@{() -> vm.getRestaurants()}" />
 
                 <ImageView
                     android:layout_width="wrap_content"

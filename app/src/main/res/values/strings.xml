@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">Fooin</string>
-    <string name="msg_enter_youtuber">Enter the youtuber</string>
+    <string name="msg_enter_influencer">Enter the influencer</string>
 </resources>

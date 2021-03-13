@@ -25,6 +25,7 @@ buildscript {
         hiltViewModelVersion = '1.0.0-alpha03'
         coroutinesCoreVersion = '1.4.2'
         naverMapVersion = '3.4.0'
+        locationVersion = '18.0.0'
 
         junitVersion = '4.13.2'
         junitExtVersion = '1.1.2'

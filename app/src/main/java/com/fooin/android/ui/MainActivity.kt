@@ -1,17 +1,19 @@
 package com.fooin.android.ui
 
+import android.Manifest
 import android.content.Context
 import android.os.Bundle
 import android.view.inputmethod.InputMethodManager
+import androidx.core.app.ActivityCompat
 import com.fooin.android.R
 import com.fooin.android.base.BaseActivity
 import com.fooin.android.databinding.ActivityMainBinding
-import com.fooin.android.data.model.Position
 import com.fooin.android.ui.dialog.RestaurantDetailDialogFragment
 import com.naver.maps.geometry.LatLng
 import com.naver.maps.map.*
 import com.naver.maps.map.overlay.Marker
 import com.naver.maps.map.overlay.OverlayImage
+import com.naver.maps.map.util.FusedLocationSource
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -23,6 +25,10 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(
 
     private val inputMethodManager: InputMethodManager by lazy {
         getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+    }
+
+    private val locationSource by lazy {
+        FusedLocationSource(this, REQ_CODE_LOCATION_PERMISSION)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,11 +52,6 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(
         viewModel.restaurantItems.observe(this) { restaurants ->
             if (restaurants.isEmpty()) return@observe
 
-            val firstPosition =
-                Position(
-                    restaurants[0].latitude,
-                    restaurants[0].longitude,
-                )
             restaurants.forEach { restaurant ->
                 val marker = Marker()
                 setMarker(marker, restaurant.latitude, restaurant.longitude)
@@ -64,11 +65,6 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(
                     true
                 }
             }
-
-
-            val cameraUpdate =
-                CameraUpdate.scrollTo(LatLng(firstPosition.latitude, firstPosition.longitude))
-            naverMap.moveCamera(cameraUpdate)
         }
         viewModel.hideKeyboardEvent.observe(this) {
             inputMethodManager.hideSoftInputFromWindow(currentFocus?.windowToken, 0)
@@ -77,14 +73,28 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(
 
     override fun onMapReady(naverMap: NaverMap) {
         this.naverMap = naverMap
-        naverMap.moveCamera(
-            CameraUpdate.toCameraPosition(
-                CameraPosition(
-                    NaverMap.DEFAULT_CAMERA_POSITION.target,
-                    NaverMap.DEFAULT_CAMERA_POSITION.zoom
-                )
-            )
+
+        this.naverMap.locationSource = locationSource
+        ActivityCompat.requestPermissions(
+            this,
+            arrayOf(
+                Manifest.permission.ACCESS_FINE_LOCATION,
+                Manifest.permission.ACCESS_COARSE_LOCATION
+            ),
+            REQ_CODE_LOCATION_PERMISSION
         )
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+
+        if (requestCode == REQ_CODE_LOCATION_PERMISSION && grantResults.isNotEmpty()) {
+            naverMap.locationTrackingMode = LocationTrackingMode.Follow
+        }
     }
 
     private fun setMarker(
@@ -98,6 +108,10 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(
         marker.position = LatLng(lat, lng)
         marker.zIndex = 0
         marker.map = naverMap
+    }
+
+    companion object {
+        private const val REQ_CODE_LOCATION_PERMISSION = 1001
     }
 
 }

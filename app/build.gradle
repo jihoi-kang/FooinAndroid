@@ -92,6 +92,9 @@ dependencies {
     // map
     implementation "com.naver.maps:map-sdk:$naverMapVersion"
 
+    //location
+    implementation "com.google.android.gms:play-services-location:$locationVersion"
+
     // test
     testImplementation "junit:junit:$junitVersion"
     androidTestImplementation "androidx.test.ext:junit:$junitExtVersion"
